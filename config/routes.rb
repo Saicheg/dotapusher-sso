@@ -1,6 +1,8 @@
 CASinoApp::Application.routes.draw do
   mount CASino::Engine => '/', :as => 'CASino'
 
+  devise_for :users, skip: :sessions
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

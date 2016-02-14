@@ -2,6 +2,7 @@ source 'https://rubygems.org'
 
 gem 'rails', '~> 4.2.0'
 gem 'unicorn'
+gem 'pg'
 
 group :assets do
   gem 'sass-rails',   '~> 4.0.3'
@@ -14,21 +15,12 @@ gem 'casino'
 gem 'casino-ldap_authenticator'
 gem 'casino-activerecord_authenticator'
 
+gem 'devise'
+gem 'devise_cas_authenticatable'
+
 gem 'http_accept_language', '~> 2.0'
 
 gem 'whenever', :require => false
-
-group :sqlite do
-  gem 'sqlite3'
-end
-
-group :mysql do
-  gem 'mysql2'
-end
-
-group :postgres do
-  gem 'pg'
-end
 
 group :development do
   gem 'capistrano', '~> 2.15'
