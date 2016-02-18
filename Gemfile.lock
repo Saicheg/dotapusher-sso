@@ -1,3 +1,13 @@
+GIT
+  remote: git://github.com/Slotos/rubycas-strategy-omniauth.git
+  revision: 9fd69feb1559f09ce0f89bb1247fbfa4d4acefc8
+  specs:
+    rubycas-strategy-omniauth (0.0.1)
+      addressable
+      rubycas-server
+      sequel
+      typhoeus
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -95,9 +105,12 @@ GEM
       rubycas-client (>= 2.2.1)
     equalizer (0.0.11)
     erubis (2.7.0)
+    ethon (0.8.1)
+      ffi (>= 1.3.0)
     execjs (2.6.0)
     faraday (0.9.2)
       multipart-post (>= 1.2, < 3)
+    ffi (1.9.10)
     foreman (0.78.0)
       thor (~> 0.19.1)
     globalid (0.3.6)
@@ -118,10 +131,13 @@ GEM
     hashie (3.4.3)
     highline (1.7.8)
     hike (1.2.3)
+    hoe (3.14.2)
+      rake (>= 0.8, < 11.0)
     http_accept_language (2.0.5)
     i18n (0.7.0)
     ice_nine (0.11.2)
     json (1.8.3)
+    jwt (1.5.1)
     kgio (2.10.0)
     libv8 (3.16.14.13)
     loofah (2.0.3)
@@ -144,6 +160,23 @@ GEM
       net-ssh (>= 2.6.5)
     nokogiri (1.6.7.2)
       mini_portile2 (~> 2.0.0.rc2)
+    oauth2 (1.1.0)
+      faraday (>= 0.8, < 0.10)
+      jwt (~> 1.0, < 1.5.2)
+      multi_json (~> 1.3)
+      multi_xml (~> 0.5)
+      rack (>= 1.2, < 3)
+    omniauth (1.3.1)
+      hashie (>= 1.2, < 4)
+      rack (>= 1.0, < 3)
+    omniauth-google-oauth2 (0.3.1)
+      jwt (~> 1.0)
+      multi_json (~> 1.3)
+      omniauth (>= 1.1.1)
+      omniauth-oauth2 (>= 1.3.1)
+    omniauth-oauth2 (1.4.0)
+      oauth2 (~> 1.0)
+      omniauth (~> 1.2)
     orm_adapter (0.5.0)
     pg (0.18.4)
     phpass-ruby (0.1.2)
@@ -191,12 +224,15 @@ GEM
       rqrcode
     rubycas-client (2.3.9)
       activesupport
+    rubycas-server (0.7.1.1)
+      hoe (>= 1.8.2)
     sass (3.2.19)
     sass-rails (4.0.5)
       railties (>= 4.0.0, < 5.0)
       sass (~> 3.2.2)
       sprockets (~> 2.8, < 3.0)
       sprockets-rails (~> 2.0)
+    sequel (4.31.0)
     sprockets (2.12.4)
       hike (~> 1.2)
       multi_json (~> 1.0)
@@ -213,6 +249,8 @@ GEM
     thor (0.19.1)
     thread_safe (0.3.5)
     tilt (1.4.1)
+    typhoeus (1.0.1)
+      ethon (>= 0.8.0)
     tzinfo (1.2.2)
       thread_safe (~> 0.1)
     uglifier (2.7.2)
@@ -247,8 +285,10 @@ DEPENDENCIES
   devise_cas_authenticatable
   foreman
   http_accept_language (~> 2.0)
+  omniauth-google-oauth2
   pg
   rails (~> 4.2.0)
+  rubycas-strategy-omniauth!
   sass-rails (~> 4.0.3)
   therubyracer
   uglifier (>= 1.0.3)

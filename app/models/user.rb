@@ -4,4 +4,12 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable,
          :cas_authenticatable
+
+  before_save :set_uuid
+
+  private
+
+  def set_uuid
+    self.uuid = SecureRandom.uuid
+  end
 end

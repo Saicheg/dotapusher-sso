@@ -18,6 +18,10 @@ gem 'casino-activerecord_authenticator'
 gem 'devise'
 gem 'devise_cas_authenticatable'
 
+gem 'rubycas-strategy-omniauth', :git => 'git://github.com/Slotos/rubycas-strategy-omniauth.git'
+gem 'omniauth-google-oauth2'
+
+
 gem 'http_accept_language', '~> 2.0'
 
 gem 'whenever', :require => false
