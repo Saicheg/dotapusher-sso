@@ -1,7 +1,7 @@
 CASinoApp::Application.routes.draw do
   mount CASino::Engine => '/', :as => 'CASino'
 
-  devise_for :users, skip: :sessions
+  devise_for :users, skip: :sessions, controllers: { registrations: "users/registrations" }
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
