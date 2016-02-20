@@ -72,7 +72,12 @@
       </table>
 
 
+      <br>
       <%= link_to "Attach Facebook", omniauth_authorize_path(:user, :facebook) %>
+      <br>
+      <%= link_to "Attach VK", omniauth_authorize_path(:user, :vkontakte) %>
+      <br>
+      <%= link_to "Attach Twitter", omniauth_authorize_path(:user, :twitter) %>
   </div>
   <%= render 'footer' %>
 </div>

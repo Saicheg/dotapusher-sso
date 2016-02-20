@@ -22,6 +22,8 @@ gem 'devise_cas_authenticatable'
 gem 'rubycas-strategy-omniauth', :git => 'git://github.com/Slotos/rubycas-strategy-omniauth.git'
 
 gem 'omniauth-facebook'
+gem 'omniauth-twitter'
+gem 'omniauth-vkontakte'
 
 
 

@@ -3,7 +3,7 @@ class User < ActiveRecord::Base
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable,
-         :cas_authenticatable, :omniauthable, :omniauth_providers => [:facebook]
+         :cas_authenticatable, :omniauthable, :omniauth_providers => [:facebook, :vkontakte, :twitter]
 
   before_save :set_uuid
 

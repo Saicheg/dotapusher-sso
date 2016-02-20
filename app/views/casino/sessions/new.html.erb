@@ -11,7 +11,7 @@
        <%= image_tag "logo.png" %>
     </div>
 
-    <div class="form">
+    <div class="form" style='height: 500px'>
       <%= form_tag(login_path, method: :post, id: 'login-form') do %>
         <%= hidden_field_tag :lt, CASino::LoginTicket.create.ticket %>
         <%= hidden_field_tag :service, params[:service] unless params[:service].nil? %>
@@ -24,7 +24,13 @@
         <% end %>
         <%= button_tag t('login.label_button'), :class => 'button' %>
       <% end %>
+
+      <br>
       <%= link_to "Sign in with Facebook", omniauth_authorize_path(:user, :facebook) %>
+      <br>
+      <%= link_to "Sign in with VK", omniauth_authorize_path(:user, :vkontakte) %>
+      <br>
+      <%= link_to "Sign in with Twitter", omniauth_authorize_path(:user, :twitter) %>
 
     </div>
   </div>

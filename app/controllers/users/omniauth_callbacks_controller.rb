@@ -1,6 +1,24 @@
 class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
 
   def facebook
+    auth_for_oauth
+  end
+
+  def twitter
+    auth_for_oauth
+  end
+
+  def vkontakte
+    auth_for_oauth
+  end
+
+  def failure
+    redirect_to '/'
+  end
+
+  protected
+
+  def auth_for_oauth
     oauth = request.env["omniauth.auth"]
     ext_auth = ExternalAuthentication.find_by uid: oauth['uid'], provider: oauth['provider']
 
@@ -13,12 +31,8 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
       user.external_authentications.find_or_create_by uid: oauth['uid'], provider: oauth['provider']
       redirect_to sessions_path
     else # Redirect to register if user not found
-      session["devise.facebook_data"] = request.env["omniauth.auth"]
+      session["devise.#{oauth['provider']}_data"] = request.env["omniauth.auth"]
       redirect_to new_user_registration_url
     end
-  end
-
-  def failure
-    # redirect_to '/'
   end
 end
