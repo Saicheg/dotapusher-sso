@@ -61,8 +61,8 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
   def configure_placeholders
     @placeholders = {
-      email: session['devise.facebook_data']['info']['email'],
-      username: nil
+      email: session['devise.oauth_data'].try(:[], 'info').try(:[], 'email'),
+      username: session['devise.oauth_data'].try(:[], 'info').try(:[], 'username')
     }
   end
 end

@@ -243,6 +243,9 @@ Devise.setup do |config|
   config.omniauth :facebook, Rails.application.secrets.facebook_app_id, Rails.application.secrets.facebook_app_secret
   config.omniauth :twitter, Rails.application.secrets.twitter_app_key, Rails.application.secrets.twitter_app_secret
   config.omniauth :vkontakte, Rails.application.secrets.vk_app_id, Rails.application.secrets.vk_app_secret
+  # Bnet requires HTTPS REDIRECT URL!!!
+  config.omniauth :bnet, Rails.application.secrets.battlenet_app_key, Rails.application.secrets.battlenet_app_secret, scope: "wow.profile sc2.profile"
+  config.omniauth :steam, Rails.application.secrets.steam_api_key
 
   # ==> Warden configuration
   # If you want to use other strategies, that are not supported by Devise, or

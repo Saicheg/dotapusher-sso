@@ -24,8 +24,8 @@ gem 'rubycas-strategy-omniauth', :git => 'git://github.com/Slotos/rubycas-strate
 gem 'omniauth-facebook'
 gem 'omniauth-twitter'
 gem 'omniauth-vkontakte'
-
-
+gem 'omniauth-bnet'
+gem 'omniauth-steam'
 
 gem 'http_accept_language', '~> 2.0'
 
