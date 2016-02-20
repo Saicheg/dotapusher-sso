@@ -3,9 +3,11 @@ class User < ActiveRecord::Base
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable,
-         :cas_authenticatable
+         :cas_authenticatable, :omniauthable, :omniauth_providers => [:facebook]
 
   before_save :set_uuid
+
+  has_many :external_authentications
 
   private
 

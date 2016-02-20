@@ -3,6 +3,7 @@ source 'https://rubygems.org'
 gem 'rails', '~> 4.2.0'
 gem 'unicorn'
 gem 'pg'
+gem 'pry'
 
 group :assets do
   gem 'sass-rails',   '~> 4.0.3'
@@ -19,7 +20,9 @@ gem 'devise'
 gem 'devise_cas_authenticatable'
 
 gem 'rubycas-strategy-omniauth', :git => 'git://github.com/Slotos/rubycas-strategy-omniauth.git'
-gem 'omniauth-google-oauth2'
+
+gem 'omniauth-facebook'
+
 
 
 gem 'http_accept_language', '~> 2.0'

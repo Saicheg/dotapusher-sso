@@ -1,11 +1,19 @@
 require 'http_accept_language'
 
 class ApplicationController < ActionController::Base
+  include CASino::SessionsHelper
+
   protect_from_forgery
 
   before_action :set_locale
+  before_action :memoize_service_in_session
 
   private
+  def memoize_service_in_session
+    session[:latest_service] ||= params[:service]
+    params[:service] ||= session[:latest_service]
+  end
+
   def set_locale
     I18n.locale = extract_locale_from_accept_language_header || I18n.default_locale
   end

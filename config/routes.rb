@@ -1,7 +1,8 @@
 CASinoApp::Application.routes.draw do
   mount CASino::Engine => '/', :as => 'CASino'
 
-  devise_for :users, skip: :sessions, controllers: { registrations: "users/registrations" }
+  resources :sessions
+  devise_for :users, skip: :sessions, controllers: { registrations: "users/registrations", omniauth_callbacks: "users/omniauth_callbacks" }
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

@@ -1,28 +1,24 @@
 class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
-  # You should configure your model like this:
-  # devise :omniauthable, omniauth_providers: [:twitter]
 
-  # You should also create an action method in this controller like this:
-  # def twitter
-  # end
+  def facebook
+    oauth = request.env["omniauth.auth"]
+    ext_auth = ExternalAuthentication.find_by uid: oauth['uid'], provider: oauth['provider']
 
-  # More info at:
-  # https://github.com/plataformatec/devise#omniauth
+    if ext_auth # Sign in from ExternalAuthentication
+      user = ext_auth.user
+      data = { authenticator: 'ActiveRecord', user_data: { username: user.username, extra_attributes: user.attributes.with_indifferent_access } }
+      sign_in(data)
+    elsif current_user # Attach new ExternalAuthentication to current user
+      user = User.find_by uuid: current_user.extra_attributes[:uuid]
+      user.external_authentications.find_or_create_by uid: oauth['uid'], provider: oauth['provider']
+      redirect_to sessions_path
+    else # Redirect to register if user not found
+      session["devise.facebook_data"] = request.env["omniauth.auth"]
+      redirect_to new_user_registration_url
+    end
+  end
 
-  # GET|POST /resource/auth/twitter
-  # def passthru
-  #   super
-  # end
-
-  # GET|POST /users/auth/twitter/callback
-  # def failure
-  #   super
-  # end
-
-  # protected
-
-  # The path used when OmniAuth fails
-  # def after_omniauth_failure_path_for(scope)
-  #   super(scope)
-  # end
+  def failure
+    # redirect_to '/'
+  end
 end
