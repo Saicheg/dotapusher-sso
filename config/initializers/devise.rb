@@ -1,3 +1,5 @@
+require "openid/store/filesystem"
+
 # Use this hook to configure devise mailer, warden hooks and so forth.
 # Many of these configuration options can be set straight in your model.
 Devise.setup do |config|
@@ -246,6 +248,12 @@ Devise.setup do |config|
   # Bnet requires HTTPS REDIRECT URL!!!
   config.omniauth :bnet, Rails.application.secrets.battlenet_app_key, Rails.application.secrets.battlenet_app_secret, scope: "wow.profile sc2.profile"
   config.omniauth :steam, Rails.application.secrets.steam_api_key
+
+  uri = URI('https://api.worldoftanks.eu/wot/auth/login/')
+  params = URI.encode_www_form({
+    application_id: Rails.application.secrets.wargaming_app_id,
+    redirect_uri: 'http://127.0.0.1:3001/users/auth/wargaming/callback'
+  })
 
   # ==> Warden configuration
   # If you want to use other strategies, that are not supported by Devise, or

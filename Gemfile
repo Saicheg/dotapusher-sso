@@ -27,6 +27,7 @@ gem 'omniauth-vkontakte'
 gem 'omniauth-bnet'
 gem 'omniauth-steam'
 
+
 gem 'http_accept_language', '~> 2.0'
 
 gem 'whenever', :require => false

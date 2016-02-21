@@ -82,6 +82,8 @@
       <%= link_to "Attach Steam", omniauth_authorize_path(:user, :steam) %>
       <br>
       <%= link_to "Attach Battlenet", omniauth_authorize_path(:user, :bnet) %>
+      <br>
+      <%= link_to "Attach WarGaming", wargaming_openid_url %>
   </div>
   <%= render 'footer' %>
 </div>
