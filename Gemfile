@@ -4,6 +4,7 @@ gem 'rails', '~> 4.2.0'
 gem 'unicorn'
 gem 'pg'
 gem 'pry'
+gem 'sidekiq'
 
 group :assets do
   gem 'sass-rails',   '~> 4.0.3'
@@ -33,6 +34,12 @@ gem 'http_accept_language', '~> 2.0'
 gem 'whenever', :require => false
 
 group :development do
-  gem 'capistrano', '~> 2.15'
+  gem 'capistrano', '~> 3.2.1'
+  gem 'capistrano-bundler', '~> 1.1.3'
+  gem 'capistrano-rails', '~> 1.1.2'
+  gem 'capistrano-rvm', '~> 0.1.2'
+  gem 'capistrano-sidekiq', '~> 0.3.8'
+  gem 'capistrano3-unicorn', '~> 0.2.1'
+  gem 'capistrano3-puma'
   gem 'foreman'
 end
