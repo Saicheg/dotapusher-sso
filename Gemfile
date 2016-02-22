@@ -5,6 +5,7 @@ gem 'unicorn'
 gem 'pg'
 gem 'pry'
 gem 'sidekiq'
+gem 'puma'
 
 group :assets do
   gem 'sass-rails',   '~> 4.0.3'
