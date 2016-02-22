@@ -347,6 +347,7 @@ DEPENDENCIES
   omniauth-vkontakte
   pg
   pry
+  puma
   rails (~> 4.2.0)
   rubycas-strategy-omniauth!
   sass-rails (~> 4.0.3)
