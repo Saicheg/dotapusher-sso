@@ -5,7 +5,7 @@ require 'whenever/capistrano'
 config = YAML.load_file('config/deployment-config.yml') || {}
 
 
-set :application, 'CASinoApp'
+set :application, 'DotapusherSSO'
 set :repository,  config['repository']
 set :scm, :git
 set :scm_verbose, true
@@ -49,9 +49,9 @@ namespace :deploy do
   end
 end
 
-before 'deploy:assets:symlink', 'casinoapp:symlink_configs'
+before 'deploy:assets:symlink', 'dotapusher_sso:symlink_configs'
 
-namespace :casinoapp do
+namespace :dotapusher_sso do
   task :setup_config do
     shared_config_path = File.join(shared_path,'config')
 
@@ -59,12 +59,12 @@ namespace :casinoapp do
 
     run %Q{if [ ! -f #{shared_config_path}/secret_token.rb ]; then
       cd #{current_release};
-      echo "CASinoApp::Application.config.secret_token = '$(bundle exec rake secret)'" > #{shared_config_path}/secret_token.rb;
+      echo "DotapusherSSO::Application.config.secret_token = '$(bundle exec rake secret)'" > #{shared_config_path}/secret_token.rb;
     fi}.compact
   end
 
   task :symlink_configs do
-    casinoapp.setup_config
+    dotapusher_sso.setup_config
     shared_config_path = File.join(shared_path,'config')
     release_config_path = File.join(release_path,'config')
     run("ln -nfs #{shared_config_path}/cas.yml #{release_config_path}/cas.yml")

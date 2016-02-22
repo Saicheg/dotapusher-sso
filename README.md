@@ -1,4 +1,4 @@
-# CASinoApp
+# DotapusherSSO
 
 Ready to use CAS server.
 

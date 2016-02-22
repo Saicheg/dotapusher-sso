@@ -1,7 +1,7 @@
 production:
   adapter: postgresql
   encoding: unicode
-  database: CASinoApp
+  database: DotapusherSSO
   pool: 5
-  username: CASinoApp
+  username: DotapusherSSO
   password:

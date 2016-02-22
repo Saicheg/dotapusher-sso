@@ -1,4 +1,4 @@
-CASinoApp::Application.routes.draw do
+DotapusherSSO::Application.routes.draw do
   mount CASino::Engine => '/', :as => 'CASino'
 
   resources :sessions

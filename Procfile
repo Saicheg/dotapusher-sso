@@ -1,1 +1,1 @@
-web: bundle exec unicorn -l $BOXEN_SOCKET_DIR/casinoapp
+web: bundle exec unicorn -l $BOXEN_SOCKET_DIR/dotapusher_sso
