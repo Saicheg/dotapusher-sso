@@ -26,6 +26,10 @@
       <% end %>
 
       <br>
+      <%= link_to "Sign up", '/users/sign_up' %>
+      <br>
+      <br>
+      <br>
       <%= link_to "Sign in with Facebook", omniauth_authorize_path(:user, :facebook) %>
       <br>
       <%= link_to "Sign in with VK", omniauth_authorize_path(:user, :vkontakte) %>
