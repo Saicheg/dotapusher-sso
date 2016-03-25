@@ -23,10 +23,24 @@
           <%= check_box_tag :rememberMe, 1, params[:rememberMe] %> <%= t('login.label_remember_me') %>
         <% end %>
         <%= button_tag t('login.label_button'), :class => 'button' %>
-        <%= link_to "Sign in with Steam", omniauth_authorize_path(:user, :steam), class: 'button' %>
       <% end %>
 
-      <%= link_to "Sign up", '/users/sign_up', class: 'button' %>
+      <br>
+      <%= link_to "Sign up", '/users/sign_up' %>
+      <br>
+      <br>
+      <br>
+      <%= link_to "Sign in with Facebook", omniauth_authorize_path(:user, :facebook) %>
+      <br>
+      <%= link_to "Sign in with VK", omniauth_authorize_path(:user, :vkontakte) %>
+      <br>
+      <%= link_to "Sign in with Twitter", omniauth_authorize_path(:user, :twitter) %>
+      <br>
+      <%= link_to "Sign in with Steam", omniauth_authorize_path(:user, :steam) %>
+      <br>
+      <%= link_to "Sign in with Battlenet", omniauth_authorize_path(:user, :bnet) %>
+      <br>
+      <%= link_to "Sign in with WarGaming", wargaming_openid_url %>
 
     </div>
   </div>
